@@ -26,3 +26,7 @@
  gem 'turbolinks'
  #bootstrap css framework
  gem 'bootstrap-sass'
+ 
+  group :development, :test do
+   gem 'rspec-rails', '~> 3.0'
+ end
