@@ -22,11 +22,28 @@
           <ul class="nav navbar-nav">
             <li class="active"><a href="/about">About<span class="sr-only">(current)</span></a></li>
             <li class="active"><a href="/posts">Posts<span class="sr-only">(current)</span></a></li>
+            <li class="active"><a href="/posts/new">Add New Post<span class="sr-only">(current)</span></a></li>
           </ul>
         </div>
       </div>
     </div>
   </nav>
+       <% if flash[:notice] %>
+       <div class="alert alert-success">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <%= flash[:notice] %>
+       </div>
+     <% elsif flash.now[:alert] %>
+       <div class="alert alert-danger">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <%= flash.now[:alert] %>
+       </div>
+     <% elsif flash[:alert] %>
+       <div class="alert alert-warning">
+         <button type="button" class="close" data-dismiss="alert">&times;</button>
+         <%= flash[:alert] %>
+       </div>
+     <% end %>
   <div class="container">
     <%= yield %>
   </div>
