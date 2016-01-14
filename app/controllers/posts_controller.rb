@@ -4,10 +4,11 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
   end
 
-  def new
-    @topic = Topic.find(params[:topic_id])
-    @post = Post.new
-  end
+ def new
+ # #7
+   @topic = Topic.find(params[:topic_id])
+   @post = Post.new
+ end
   
   def create
  # #9
@@ -29,31 +30,31 @@ class PostsController < ApplicationController
      end
    end
 
-  def edit
-    @post = Post.find(params[:id])
-  end
+   def edit
+     @post = Post.find(params[:id])
+   end
   
-  def update
+   def update
      @post = Post.find(params[:id])
      @post.title = params[:post][:title]
      @post.body = params[:post][:body]
  
      if @post.save
        flash[:notice] = "Post was updated."
-       redirect_to [@post.topic, @post]
+       redirect_to @post
      else
        flash.now[:alert] = "There was an error saving the post. Please try again."
        render :edit
      end
-  end
+   end
   
-     def destroy
+   def destroy
      @post = Post.find(params[:id])
  
  # #8
      if @post.destroy
        flash[:notice] = "\"#{@post.title}\" was deleted successfully."
-       redirect_to @post.topic
+       redirect_to posts_path
      else
        flash.now[:alert] = "There was an error deleting the post."
        render :show
