@@ -12,14 +12,15 @@
        </ul>
      </div>
    <% end %>
-  # #8
+
    <%= form_group_tag(post.errors[:title]) do %>
      <%= f.label :title %>
      <%= f.text_field :title, class: 'form-control', placeholder: "Enter post title" %>
    <% end %>
-  # #9
+
    <%= form_group_tag(post.errors[:body]) do %>
-     <%= f.label :body %>
+   <%= f.label :body %>
+   <%= f.text_area :body, class: 'form-control', placeholder: "Enter post body" %>
    <% end %>
    <div class="form-group">
      <%= f.submit "Save", class: 'btn btn-success' %>
