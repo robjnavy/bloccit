@@ -11,7 +11,7 @@
      @topic = Topic.new
    end  
    
-      def create
+    def create
      @topic = Topic.new
      @topic.name = params[:topic][:name]
      @topic.description = params[:topic][:description]
@@ -29,7 +29,7 @@
      @topic = Topic.find(params[:id])
    end
    
-      def update
+   def update
      @topic = Topic.find(params[:id])
  
      @topic.name = params[:topic][:name]
@@ -45,7 +45,7 @@
      end
    end
    
-      def destroy
+   def destroy
      @topic = Topic.find(params[:id])
  
      if @topic.destroy

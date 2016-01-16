@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     @post = Post.new
   end
   
-  def create
+   def create
  # #9
      @post = Post.new
      @post.title = params[:post][:title]
@@ -47,7 +47,7 @@ class PostsController < ApplicationController
      end
   end
   
-     def destroy
+   def destroy
      @post = Post.find(params[:id])
  
  # #8
