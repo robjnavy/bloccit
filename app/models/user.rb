@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
     before_save { self.email = email.downcase }
+    
+    before_save :format_name
+    
 
  # #3
    EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
@@ -18,4 +21,17 @@ class User < ActiveRecord::Base
 
  # #7
    has_secure_password
+   
+   def format_name
+       if name
+           name_array = name.split(" ")
+            uppercase_array = []
+            name_array.each do |name|
+                name = name.slice(0,1).capitalize + name.slice(1..-1)
+                uppercase_array << name
+            end
+            self.name = uppercase_array.join(" ")
+       end
+   end
+    
 end
