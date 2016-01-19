@@ -26,6 +26,7 @@
  gem 'turbolinks'
  #bootstrap css framework
  gem 'bootstrap-sass'
+ gem 'bcrypt'
  
  gem 'shoulda'
   group :development, :test do
