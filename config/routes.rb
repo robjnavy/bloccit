@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     end
 
     get 'about' => 'welcome#about'
+    post 'users/confirm' => 'users#confirmation'
   
     root 'welcome#index'
 
