@@ -65,6 +65,11 @@
        flash[:alert] = "You must be an admin to do that."
        redirect_to topics_path
      end
+     
+     unless current_user.moderator?
+       flash[:alert] = "You must be a moderator to do that."
+       redirect_to topics_path
+     end
    end
  
  end

@@ -70,6 +70,13 @@ class PostsController < ApplicationController
        flash[:alert] = "You must be an admin to do that."
        redirect_to [post.topic, post]
      end
+     
+     unless current_user == post.user || current_user.moderator?
+       flash[:alert] = "You must be an moderator to do that."
+       redirect_to [post.topic, post]
+     end
+     
+
    end
   
 end
