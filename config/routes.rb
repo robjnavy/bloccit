@@ -9,6 +9,12 @@ Rails.application.routes.draw do
 
     get 'about' => 'welcome#about'
     post 'users/confirm' => 'users#confirmation'
+     
+ # #4
+   resources :posts, only: [] do
+ # #5
+     resources :comments, only: [:create, :destroy]
+   end
   
     root 'welcome#index'
 

@@ -17,6 +17,7 @@
    it { should validate_presence_of(:user) }
    it { should validate_length_of(:title).is_at_least(5) }
    it { should validate_length_of(:body).is_at_least(20) }
+   it { should have_many(:comments) }
  
    describe "attributes" do
  # #2
