@@ -18,8 +18,10 @@ class CommentsController < ApplicationController
    def create
  # #11
      @post = Post.find(params[:post_id])
+     topic_id = @post.topic_id
      comment = @post.comments.new(comment_params)
      comment.user = current_user
+     comment.topic_id_id = topic_id
  
      if comment.save
        flash[:notice] = "Comment saved successfully."

@@ -8,6 +8,7 @@
 
    def show
      @topic = Topic.find(params[:id])
+     @comments = Comment.where("topic_id_id = #{@topic.id}")
    end
  
    def new
