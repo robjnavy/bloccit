@@ -31,4 +31,6 @@
  gem 'shoulda'
   group :development, :test do
    gem 'rspec-rails', '~> 3.0'
+   
+   gem 'figaro', '1.0'
  end
