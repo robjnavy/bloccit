@@ -6,7 +6,9 @@ class Post < ActiveRecord::Base
     has_many :labelings, as: :labelable
     has_many :labels, through: :labelings
     has_many :favorites, dependent: :destroy
+    
     default_scope { order('rank DESC') }
+    scope :visible_to, -> (user) { user ? all : joins(:topic).where('topics.public' => true) }
     validates :title, length: { minimum: 5 }, presence: true
     validates :body, length: { minimum: 20 }, presence: true
     validates :topic, presence: true
@@ -16,7 +18,7 @@ class Post < ActiveRecord::Base
     def up_votes
  # #9
      votes.where(value: 1).count
-   end
+    end
  
    def down_votes
  # #10
