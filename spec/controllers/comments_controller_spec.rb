@@ -8,7 +8,7 @@ RSpec.describe CommentsController, type: :controller do
    let(:my_user) { build(:user) }
    let(:other_user) { build(:user) }
    let(:my_post) { build(:post, topic: my_topic, user: my_user) }
-   let(:my_comment) { Comment.create!(body: 'Comment Body', post: my_post, user: my_user) }
+   let(:my_comment) { build(:comment, post: my_post, user: my_user) }
  
  # #6
    context "guest" do

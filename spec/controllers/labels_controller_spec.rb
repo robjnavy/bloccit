@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe LabelsController, type: :controller do
-  let(:my_label) { Label.create!(name: "L1") }
+  let(:my_label) { build(:label) }
  
 
   describe "GET #show" do

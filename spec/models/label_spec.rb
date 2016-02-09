@@ -4,8 +4,7 @@
    let(:topic) { build(:topic) }
    let(:user) { build(:user) }
    let(:post) { build(:post) }
-   let(:label) { Label.create!(name: 'Label') }
-   let(:label2) { Label.create!(name: 'Label2') }
+   let(:label) { build(:label) }
  
  # #1
    it { is_expected.to have_many :labelings }
