@@ -3,6 +3,7 @@ include RandomData
 
 RSpec.describe TopicsController, type: :controller do
     let(:my_topic) { build(:topic) }
+    let(:my_private_topic) { create(:topic, public: false) }
  # #13
    let(:my_post) { my_topic.posts.create!(title: RandomData.random_sentence, body: RandomData.random_paragraph) }
    
@@ -12,6 +13,11 @@ RSpec.describe TopicsController, type: :controller do
        get :show, topic_id: my_topic.id, id: my_post.id
        expect(response).to have_http_status(:success)
      end
+     
+     it "redirects from private topics" do
+         get :show, {id: my_private_topic.id}
+         expect(response).to redirect_to(new_session_path)
+       end
  
      it "renders the #show view" do
          
