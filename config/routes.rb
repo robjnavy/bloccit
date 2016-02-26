@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
     resources :topics do
  # #34
-     resources :posts, except: [:index]
+     resources :posts, only: [:create]
     end
 
     get 'about' => 'welcome#about'
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
      namespace :v1 do
        resources :users, only: [:index, :show, :create, :update]
        resources :topics, except: [:edit, :new, :index, :show]
-       resources :posts, only: [:index, :show]
+       resources :posts, only: [:index, :show, :update, :destroy]
        resources :comments, only: [:index, :show]
        
      end
